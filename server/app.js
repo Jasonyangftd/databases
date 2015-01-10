@@ -1,5 +1,6 @@
 var express = require('express');
 var db = require('./db').connection;
+var cors = require('cors');
 
 db.connect(function(err){
   console.log(err);
@@ -23,6 +24,7 @@ app.set("port", 3000);
 // Logging and parsing
 app.use(morgan('dev'));
 app.use(parser.json());
+app.use(cors());
 
 // Set up our routes
 app.use("/classes", router);

@@ -5,11 +5,15 @@ var db = require('../db');
 
 module.exports = {
   messages: {
-    get: function () {
+    get: function (req,res) {
+      db.connection.query("select * from messages;", function(err,rows,cols){
+        res.send(rows);
+      });
+      // console.log('This is resp', JSON.parse(resp));
+      // res.end(resp);
       //select text from messages where username = req.username
     }, // a function which produces all the messages
     post: function (req,res) {
-      console.log('this is req.body.username in messages: ',req.body);
       db.connection.query('insert into messages (username, text) values ("' + req.body.username + '", "' + req.body.message + '");');
       res.end();
 
@@ -19,9 +23,10 @@ module.exports = {
 
   users: {
     // Ditto as above.
-    get: function () {},
+    get: function () {
+      console.log('This is req in users (get) :',req);
+    },
     post: function (req,res) {
-      console.log("This is req.body in users: ",req.body);
       //enter into the database to table users
       db.connection.query("insert into users (username) values ('" + req.body.username + "');");
 
