@@ -16,7 +16,7 @@ describe("Persistent Node Chat Server", function() {
     });
 
     dbConnection.connect();
-    dbConnection.query('source ../schema.sql');
+
 
        var tablename = "messages"; // TODO: fill this out
 

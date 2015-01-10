@@ -21,11 +21,13 @@ CREATE TABLE users (
 
 );
 
+/*
 -- CREATE TABLE joiner select users.id as userID, messages.id as messageID, username, message from users, text where users.id = messages.id;
 
 
-/*  Execute this file from the command line by typing:
- *    mysql -u root < server/schema.sql
- *  to create the database and the tables.*/
+  Execute this file from the command line by typing:
+ *    mysql -u root < ../server/schema.sql
+ *  to create the database and the tables.
 
 --insert into TABLE (col1, col2) values ('value1', 'value2');
+*/

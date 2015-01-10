@@ -10,6 +10,7 @@ module.exports = {
       console.log("This is the request: ",req);
     }, // a function which handles a get request for all messages
     post: function (req, res) {
+      console.log("inside messages post of controllers->index.js")
       models.messages.post(req,res);
 
     } // a function which handles posting a message to the database
@@ -18,12 +19,15 @@ module.exports = {
   users: {
     // Ditto as above
     get: function (req, res) {
-      models.users.get();
-      console.log("Inside get and this is req.query",req.query)
+      //models.users.get();
+      console.log("Inside get and this is req.query",req.query);
+      models.users.get(req,res);
     },
     post: function (req, res) {
-      models[users].post(req,res);
-      //res.end('statu code')
+      console.log("inside users post of controllers->index.js")
+      models.users.post(req,res);
+      //models[users].post(req,res);
+
     }
   }
 };

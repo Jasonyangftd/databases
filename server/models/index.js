@@ -9,10 +9,10 @@ module.exports = {
       //select text from messages where username = req.username
     }, // a function which produces all the messages
     post: function (req,res) {
-      console.log('this is req.body.username in messages: ',req.body.username);
-      db.connection.query("insert into messages ('username', 'text') values ('" + req.body.username + "', '" + req.body.message + "');",function(err){
-        console.log(err);
-      });
+      console.log('this is req.body.username in messages: ',req.body);
+      db.connection.query('insert into messages (username, text) values ("' + req.body.username + '", "' + req.body.message + '");');
+      res.end();
+
 
     } // a function which can be used to insert a message into the database
   },
@@ -23,9 +23,9 @@ module.exports = {
     post: function (req,res) {
       console.log("This is req.body in users: ",req.body);
       //enter into the database to table users
-      db.connection.query('insert into messages (username) values ("' + req.body.username +'")',function(err){
-        console.log(err);
-      });
+      db.connection.query("insert into users (username) values ('" + req.body.username + "');");
+
+      res.end();
     }
   }
 };
